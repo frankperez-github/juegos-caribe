@@ -1,0 +1,22 @@
+.mobileLogo
+{
+    width: 25%;
+}
+.searchIcon
+{
+    width: 25%;
+}
+.burgerMenu{
+    width: 25%;
+}
+.MobileView
+{
+    display: flex;
+    justify-content: space-between;
+}
+.rightHeader
+{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}

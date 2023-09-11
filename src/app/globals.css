@@ -1,0 +1,27 @@
+.MobileView
+{
+  display: none;
+}
+.DesktopView
+{
+  display: block;
+}
+.image{
+  object-fit: cover;
+  width: 100% !important;
+  position: relative !important;
+}
+
+
+/* Mobile Version: 0px - 420px */
+@media (max-width: 420px)
+{
+  .MobileView
+  {
+    display: block;
+  }
+  .DesktopView
+  {
+    display: none;
+  }
+}
