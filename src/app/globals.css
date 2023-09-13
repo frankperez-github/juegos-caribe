@@ -13,9 +13,22 @@
 }
 
 
+
+
 /* Mobile Version: 0px - 420px */
 @media (max-width: 420px)
 {
+  h1
+  {
+    font-size: 26px;
+  }
+  h2
+  {
+    font-size: 18px;
+  }
+  p{
+    font-size: 15px;
+  }
   .MobileView
   {
     display: block;

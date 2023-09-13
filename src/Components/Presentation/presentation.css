@@ -1,0 +1,40 @@
+.Main
+{
+    background-color: #f3f3f3;
+}
+p, h1
+{
+    color: #5A1024;
+}
+.leftInfo
+{
+    width: 18%;
+}
+.Introduction{
+    width: 77%;
+}
+.smallBall
+{
+    width: 90%;
+}
+.gameIsOn
+{
+    padding: 15% 0;
+    padding-bottom: 30%;
+    display: flex;
+}
+.backGroundBall
+{
+    padding-top: 15%;
+}
+.recortedPlayer
+{
+    width: 90%;
+    position: absolute;
+    top: 35%;
+    left: 12%;
+}
+.gameIsOn h1
+{
+    margin-bottom: 5%;
+}
