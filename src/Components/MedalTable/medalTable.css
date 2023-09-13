@@ -2,3 +2,71 @@
 {
     padding: 0 5%;
 }
+.tableTitle
+{
+    width: 84.2%;
+    padding: 5% 8%;
+    background-color: #5a1024;
+    color: white;
+    margin-top: 17%;
+}
+.filters
+{
+    width: 23%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.tableTitle
+{
+    display: flex;
+    justify-content: space-between;
+    border-top-right-radius: 17px;
+    border-top-left-radius: 17px;
+    margin-bottom: 15%;
+}
+.moreImg
+{
+    width: 25%;
+}
+.filters p
+{
+    color: white;
+}
+.medalsTable
+{
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(185, 185, 185);
+    padding: 5% 2% 0 2%;
+    margin-top: -15%;
+    width: 100%;
+}
+th:first-of-type{
+    padding-right: 18%;
+}
+.medalIcon
+{
+    width: 45%;
+    margin-left: 27%;
+}
+.logoName
+{
+    width: 30%;
+    padding: 0 5%;
+}
+.row
+{
+    padding: 5% 0;
+    display: flex;
+    align-items: center;
+    padding-left: 9%;
+}
+.medalInfo
+{
+    padding-left: 3.5%;
+}
+.medalInfo:last-of-type
+{
+    padding-left: 6%;
+}

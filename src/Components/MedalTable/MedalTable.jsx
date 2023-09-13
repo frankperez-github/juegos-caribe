@@ -15,6 +15,46 @@ export default function MedalTable()
                         </div>
                     </div>
                 </div>
+                <table className="medalsTable">
+                    <tr>
+                        <th>Facultades</th>
+                        <th>
+                            <div className="medalIcon">
+                                <Image src="/goldenMedal.svg" fill className="image"/>
+                            </div>
+                        </th>
+                        <th>
+                            <div className="medalIcon">
+                                <Image src="/silverMedal.svg" fill className="image"/>
+                            </div>
+                        </th>
+                        <th>
+                            <div className="medalIcon">
+                                <Image src="/bronzeMedal.svg" fill className="image"/>
+                            </div>
+                        </th>
+                        <th>
+                            <div className="medalIcon">
+                                <Image src="/allMedals.svg" fill className="image"/>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div className="row">
+                                <p>1</p>
+                                <div className="logoName">
+                                    <Image src="/lenguas_extranjeras.svg" fill className="image"/>
+                                </div>
+                                <p>FLEX</p>
+                            </div>
+                        </td>
+                        <td className="medalInfo">1</td>
+                        <td className="medalInfo">-</td>
+                        <td className="medalInfo">4</td>
+                        <td className="medalInfo">5</td>
+                    </tr>
+                </table>
             </div>
         </div>
     )
