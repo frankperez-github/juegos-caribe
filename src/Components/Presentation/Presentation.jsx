@@ -8,7 +8,7 @@ export default function Main()
                 <div className="gameIsOn">
                     <div className="leftInfo">
                         <div className="smallBall">
-                            <Image src="/smallBall.svg" fill className="image"/>
+                            <Image alt="" src="/smallBall.svg" fill className="image"/>
                         </div>
                     </div>
                     <div className="Introduction">
@@ -19,10 +19,10 @@ export default function Main()
                 </div>
                 <div className="playerImage">
                     <div className="backGroundBall">
-                        <Image src="/backgroundBall.svg" fill className="image"/>
+                        <Image alt="" src="/backgroundBall.svg" fill className="image"/>
                     </div>
                     <div className="recortedPlayer">
-                        <Image src="/player.svg" fill className="image"/>
+                        <Image alt="" src="/player.svg" fill className="image"/>
                     </div>
                 </div>
             </div>

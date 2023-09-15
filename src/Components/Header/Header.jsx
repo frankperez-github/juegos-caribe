@@ -13,18 +13,18 @@ export default function Header()
                 <div className="MobileHeader">
                     <div className="leftHeader">
                         <div className="mobileLogo">
-                            <Image src="/logo.svg" fill className="image"/>
+                            <Image alt="" src="/logo.svg" fill className="image"/>
                         </div>
                     </div>
                     <div className="rightHeader">
                         <div className="searchIcon">
-                            <Image src="/search.svg" fill className="image"/>
+                            <Image alt="" src="/search.svg" fill className="image"/>
                         </div>
                         <h2 onClick={()=>{ lenguage === "es" ? setLenguage("en"): setLenguage("es")}}>
                             {lenguage.toUpperCase()}
                         </h2>
                         <div className="burgerMenu">
-                            <Image src="/burgerMenu.svg" fill className="image"/>
+                            <Image alt="" src="/burgerMenu.svg" fill className="image"/>
                         </div>
                     </div>
                 </div>

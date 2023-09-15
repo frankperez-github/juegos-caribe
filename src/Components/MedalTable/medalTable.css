@@ -19,6 +19,7 @@
 }
 .tableTitle
 {
+    box-shadow: 0px -3px 15px 2px gray;
     display: flex;
     justify-content: space-between;
     border-top-right-radius: 17px;
@@ -36,8 +37,10 @@
 .medalsTable
 {
     border: solid;
+    background-color: rgba(255, 255, 255, 0.226);
     border-width: 1px;
     border-color: rgb(185, 185, 185);
+    box-shadow: 1px 1px 15px 2px gray;
     padding: 5% 2% 0 2%;
     margin-top: -15%;
     width: 100%;
@@ -69,4 +72,39 @@ th:first-of-type{
 .medalInfo:last-of-type
 {
     padding-left: 6%;
+}
+td p
+{
+    color: black !important;
+}
+.trow
+{
+    border: solid;
+}
+.moreBar p:last-of-type
+{
+    padding-right: 5%;
+}
+.moreBar
+{
+    padding-left: 37%;
+    margin-left: 0.25%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    margin-bottom: 15%;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: 0px 10px 40px 2px gray;
+    display: flex;
+    background-color: white;
+    margin-top: -0.5%;
+    width: 62.5%;
+}
+.showMore
+{
+    width: 10%;
+}
+.moreImg
+{
+    width: 80%;
 }
