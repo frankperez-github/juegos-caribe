@@ -1,0 +1,38 @@
+.NewsPreview
+{
+    cursor: pointer;
+    border-radius: 13px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    box-shadow: 0px 0px 10px 10px rgb(235, 235, 235);
+}
+.newsInfo
+{
+    padding: 5% 10%;
+}
+.newsInfo p, .newsInfo h3
+{
+    margin-bottom: 5%;
+}
+.NewsPreview p{
+    color: black;
+}
+.sportLabel
+{
+    background-color: #5a10249c;
+    width: 30%;
+    padding: 3%;
+    border-top-right-radius: 1.5rem;
+    position: relative;
+    margin-top: -12.5%;
+}
+.sportLabel p{
+    color: white;
+    padding-left: 5%;
+    font-weight: 700;
+}
+.date
+{
+    margin-top: 10%;
+    color: gray !important;
+}
