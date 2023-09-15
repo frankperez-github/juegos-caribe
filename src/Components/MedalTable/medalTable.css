@@ -2,6 +2,13 @@
 {
     padding: 0 5%;
 }
+.MedalTable
+{
+    background-image: url("../../../public//Group\ 3676.svg");
+    background-repeat: no-repeat;
+    background-position: fixed;
+
+}
 .tableTitle
 {
     width: 84.2%;
@@ -40,7 +47,8 @@
     background-color: rgba(255, 255, 255, 0.226);
     border-width: 1px;
     border-color: rgb(185, 185, 185);
-    box-shadow: 1px 1px 15px 2px gray;
+    background-color: rgba(255, 255, 255, 0.753);
+    backdrop-filter: blur(4px);
     padding: 5% 2% 0 2%;
     margin-top: -15%;
     width: 100%;
@@ -73,13 +81,14 @@ th:first-of-type{
 {
     padding-left: 6%;
 }
+td
+{
+    border-bottom: solid;
+    border-width: 1px;
+}
 td p
 {
     color: black !important;
-}
-.trow
-{
-    border: solid;
 }
 .moreBar p:last-of-type
 {
@@ -88,15 +97,18 @@ td p
 .moreBar
 {
     padding-left: 37%;
-    margin-left: 0.25%;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding-top: 4%;
+    padding-bottom: 4%;
     margin-bottom: 15%;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    box-shadow: 0px 10px 40px 2px gray;
+    border: solid;
+    border-top: none;
+    border-width: 0.4px;
+    border-color: rgb(192, 192, 192);
     display: flex;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.753);
+    backdrop-filter: blur(4px);
     margin-top: -0.5%;
     width: 62.5%;
 }

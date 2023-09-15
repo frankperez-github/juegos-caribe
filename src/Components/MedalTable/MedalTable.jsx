@@ -10,7 +10,7 @@ export default function MedalTable()
 
     useEffect(()=>
     {
-        if (more === true)
+        if(more)
         {
             setStyle({transform: "rotate(180deg)"})
         }
@@ -58,8 +58,6 @@ export default function MedalTable()
                         </tr>
                     </thead>
                     <tbody>
-
-
                         {!more ?
                         <>
                             <tr className="trow">
@@ -77,7 +75,7 @@ export default function MedalTable()
                                 <td className="medalInfo">4</td>
                                 <td className="medalInfo">5</td>
                             </tr>
-                            <tr>
+                            <tr className="trow">
                                 <td>
                                     <div className="row">
                                         <p>2</p>
@@ -91,11 +89,11 @@ export default function MedalTable()
                                 <td className="medalInfo">-</td>
                                 <td className="medalInfo">4</td>
                                 <td className="medalInfo">5</td>
-                                </tr>
-                                </>
-                                :
-                                <>
-                                <tr className="trow">
+                            </tr>
+                            </>
+                            :
+                            <>
+                            <tr className="trow">
                                 <td>
                                 <div className="row">
                                         <p>1</p>
@@ -119,12 +117,13 @@ export default function MedalTable()
                                         </div>
                                         <p>FARAL</p>
                                         </div>
-                                        </td>
-                                        <td className="medalInfo">1</td>
-                                        <td className="medalInfo">-</td>
-                                        <td className="medalInfo">4</td>
-                                        <td className="medalInfo">5</td>
-                                        </tr><tr>
+                                    </td>
+                                    <td className="medalInfo">1</td>
+                                    <td className="medalInfo">-</td>
+                                    <td className="medalInfo">4</td>
+                                    <td className="medalInfo">5</td>
+                            </tr>
+                            <tr>
                                         <td>
                                         <div className="row">
                                         <p>1</p>
