@@ -1,14 +1,6 @@
-.DailySports h2
-{
-    color: #5a1024;
-    border-bottom: solid;
-    border-width: 1px;
-    border-color: #5a102454;
-    padding: 2% 0%;
-    margin-bottom: 5%;
-}
 .SportsList
 {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 15%;
 }

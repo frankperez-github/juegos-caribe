@@ -11,6 +11,15 @@
   width: 100% !important;
   position: relative !important;
 }
+.sectionTitle
+{
+  color: #5a1024;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: #5a102454;
+  padding: 2% 0%;
+  margin-bottom: 5%;
+}
 
 
 
@@ -20,11 +29,11 @@
 {
   h1
   {
-    font-size: 26px;
+    font-size: 32px;
   }
   h2
   {
-    font-size: 18px;
+    font-size: 25px;
   }
   p{
     font-size: 15px;

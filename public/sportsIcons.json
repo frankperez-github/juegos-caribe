@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Atletismo",
+        "icon": "/athletism.svg"
+    },
+    {
+        "name": "Tenis",
+        "icon": "/taekwondo.svg"
+    },
+    {
+        "name": "Taekwondo",
+        "icon": "/taekwondo.svg"
+    }
+]
