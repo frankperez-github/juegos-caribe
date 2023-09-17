@@ -5,6 +5,7 @@ import MedalTable from '@/Components/MedalTable/MedalTable'
 import DailySports from '@/Components/DailySports/DailySports'
 import RelevantNews from '@/Components/RelevantNews/RelevantNews'
 import FacultiesPlaying from '@/Components/FacultiesPlaying/FacultiesPlaying'
+import Footer from '@/Components/Footer/Footer'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <DailySports />
       <RelevantNews />
       <FacultiesPlaying />
+      <Footer />
     </main>
   )
 }
