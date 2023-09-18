@@ -1,0 +1,52 @@
+
+.leftColumn:first-of-type
+{
+    margin-left: -13%;
+}
+.group
+{
+    margin: 5% 0;
+    width: 50%;
+}
+.footerRow
+{
+    display: flex;
+    justify-content: space-evenly;
+}
+.groupInfo
+{
+    margin-top: -7%;
+}
+.group p
+{
+    color: rgb(29, 29, 29);
+}
+.group a
+{
+    font-weight: bold;
+    color: #5a1024;
+}
+.Links
+{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    border-top: solid;
+    border-bottom: solid;
+    border-color: gray;
+    border-width: 2px;
+    padding: 10% 0;
+}
+.Links a{
+    color: rgb(51, 51, 51);
+}
+.rightLinks
+{
+    width: 50%;
+}
+.rights
+{
+    padding: 10%;
+    align-items: center;
+    text-align: center;
+}

@@ -14,43 +14,56 @@ export default function Footer()
 
                 </div>
             </div>
-            <div className="leftColumn">
-                <div className="group">
-                    <a href="/">Inicio</a>
-                    <p>Medallero</p>
-                    <p>Deportes del Día</p>
-                    <p>Resumen de Noticias</p>
+            <div className="columns">
+                <div className="footerRow">
+                    <div className="group">
+                        <a href="/">Inicio</a><br /><br />
+                        <div className="groupInfo">
+                            <p  classname="groupHead" >Medallero</p>
+                            <p>Deportes del Día</p>
+                            <p>Resumen de Noticias</p>
+                        </div>
+                    </div>
+                    <div className="group">
+                        <a href="/Deportes">Deportes</a><br /><br />
+                        <div className="groupInfo">
+                            <p  classname="groupHead" >Individuales</p>
+                            <p>Colectivos</p>
+                        </div>
+                    </div>
                 </div>
-                <div className="group">
-                    <a href="/Noticias">Noticias</a>
-                    <p>Noticias relevantes</p>
+                <div className="footerRow">
+                    <div className="group">
+                        <a href="/Noticias">Noticias</a><br /><br />
+                        <div className="groupInfo">
+                            <p  classname="groupHead">Noticias relevantes</p>
+                        </div>
+                    </div>
+                    
+                    <div className="group">
+                        <a href="/Juegos_Caribe">Juegos Caribe</a><br /><br />
+                        <div className="groupInfo">
+                            <p  classname="groupHead" >Reglamento</p>
+                            <p>Comisión</p>
+                        </div>
+                    </div>
                 </div>
-                <div className="group">
-                    <a href="/">Cronograma</a>
-                </div>
-            </div>
-            <div className="rightColumn">
-                <div className="group">
-                    <a href="/Deportes">Deportes</a>
-                    <p>Individuales</p>
-                    <p>Colectivos</p>
-                </div>
-                <div className="group">
-                    <a href="/Juegos_Caribe">Juegos Caribe</a>
-                    <p>Reglamento</p>
-                    <p>Comisión</p>
-                </div>
-                <div className="group">
-                    <a href="/">Facultades</a>
+                <div className="footerRow">
+                    <div className="group">
+                        <a href="/">Cronograma</a><br /><br />
+                    </div>
+                    <div className="group">
+                        <a href="/">Facultades</a><br /><br />
+                    </div>
                 </div>
             </div>
             <div className="Links">
-                <div className="leftColumn">
-                    <a href="">Contáctanos</a>
+                <div className="leftLinks">
+                    <a href="">Contáctanos</a><br /><br />
                     <a href="">Sobre Nosotros</a>
                 </div>
-                <div className="rightColumn">
-                    <a href="">Política de Privacidad</a>
+                <div className="rightLinks">
+                    <a href="">Política de Privacidad</a><br /><br />
                     <a href="">Términos de uso</a>
                 </div>
             </div>
