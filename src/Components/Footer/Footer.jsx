@@ -6,12 +6,12 @@ export default function Footer()
     const year = new Date().getFullYear()
     return(
         <div className="Footer MobileView container">
-            <div className="FooterHead">
+            <div>
                 <div className="Logo">
                     <Image src="/logo.svg" alt="" fill className="image"/>
                 </div>
                 <div className="socialMedias">
-
+                
                 </div>
             </div>
             <div className="columns">

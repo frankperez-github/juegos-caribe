@@ -146,9 +146,13 @@ export default function FacultiesPlaying()
         "image": Faculties[right].image
     })
 
+    const [firstTime, setFirstTime] = useState(true)
     useEffect(()=>{
-        document.getElementById(left).classList.add("selected")
-
+        if(firstTime === true)
+        {
+            document.getElementById(left).classList.add("selected")
+            setFirstTime(false)
+        }
     },[left, right])
 
     const handleRight=()=>{
@@ -174,19 +178,19 @@ export default function FacultiesPlaying()
         var selected = document.getElementsByClassName("selected")
         if (+selected[0].innerHTML === left+1)
         {
+            setLeft(right-3)
+            setRight(right-2)
             document.getElementById(left).classList.remove("selected")
             document.getElementById(right).classList.add("selected")
-            setLeft(left-2)
-            setRight(left-1)
-            // setLeftCard({"name": Faculties[left].name,"image": Faculties[left].image})
-            // setRightCard({"name": Faculties[right].name,"image": Faculties[right].image})
+            Faculties[left] && setLeftCard({"name": Faculties[left].name,"image": Faculties[left].image})
+            Faculties[right] && setRightCard({"name": Faculties[right].name,"image": Faculties[right].image})
         }
         else
         {
             document.getElementById(left).classList.add("selected")
             document.getElementById(right).classList.remove("selected")
-            // setLeftCard({"name": Faculties[left-2].name,"image": Faculties[left-2].image})
-            // setRightCard({"name": Faculties[left-1].name,"image": Faculties[left-1].image})
+            Faculties[left-2] && setLeftCard({"name": Faculties[left-2].name,"image": Faculties[left-2].image})
+            Faculties[left-1] && setRightCard({"name": Faculties[left-1].name,"image": Faculties[left-1].image})
         }
     }
 
@@ -208,7 +212,7 @@ export default function FacultiesPlaying()
                         :
                         <div className=""></div>
                 }
-                <p  className="pageNumb" id={left}>
+                <p className="pageNumb" id={left}>
                     {left+1}
                 </p>
                 <p className="pageNumb" id={right}>
@@ -218,7 +222,7 @@ export default function FacultiesPlaying()
                     right < Faculties.length/2 ?
                         <div className="arrow">
                             <div className="rightArrow" onClick={handleRight}>
-                                <Image src="/right.svg" alt="" fill className="image"/>
+                                <Image aria-disabled="true" src="/right.svg" alt="" fill className="image"/>
                             </div>
                         </div>
                     :
