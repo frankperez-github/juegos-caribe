@@ -202,12 +202,12 @@ export default function FacultiesPlaying()
     const [right, setRight] = useState(1)
     const [Selected, setSelected] = useState(0)
     const [leftCard, setLeftCard] = useState({
-        "name": Faculties[left].name,
-        "image": Faculties[left].image
+        "name": Faculties[left] && Faculties[left].name,
+        "image": Faculties[left] && Faculties[left].image
     })
     const [rightCard, setRightCard] = useState({
-        "name": Faculties[right].name,
-        "image": Faculties[right].image
+        "name": Faculties[right] && Faculties[right].name,
+        "image": Faculties[right] && Faculties[right].image
     })
 
     const [firstTime, setFirstTime] = useState(true)
@@ -227,20 +227,19 @@ export default function FacultiesPlaying()
             document.getElementById(left).classList.add("selected")
             setSelected(right+3)
             document.getElementById(right).classList.remove("selected")
-            Faculties[right+3] && setLeftCard({"name": Faculties[right+3].name,"image": Faculties[right+3].image})
-            Faculties[right+4] && setRightCard({"name": Faculties[right+4].name,"image": Faculties[right+4].image})
-            setLeft(right+3)
-            setRight(right+4)
+            Faculties[right+3] ? setLeftCard({"name": Faculties[right+3].name,"image": Faculties[right+3].image}): setLeftCard({})
+            Faculties[right+4] ? setRightCard({"name": Faculties[right+4].name,"image": Faculties[right+4].image}): setRightCard({})
+            setLeft(right+2)
+            setRight(right+3)
         }
         else
         {
             document.getElementById(left).classList.remove("selected")
             setSelected(right+2)
             document.getElementById(right).classList.add("selected")
-            Faculties[right+1] && setLeftCard({"name": Faculties[right+1].name,"image": Faculties[right+1].image})
-            Faculties[right+2] && setRightCard({"name": Faculties[right+2].name,"image": Faculties[right+2].image})
+            Faculties[right+1] ? setLeftCard({"name": Faculties[right+1].name,"image": Faculties[right+1].image}): setLeftCard({})
+            Faculties[right+2] ? setRightCard({"name": Faculties[right+2].name,"image": Faculties[right+2].image}): setRightCard({})
         }
-        console.log(Selected <= Faculties.length/2)
     }
     const handleLeft=()=>{
         var selected = document.getElementsByClassName("selected")
@@ -286,10 +285,10 @@ export default function FacultiesPlaying()
                     {left+1}
                 </p>
                 <p className="pageNumb" id={right}>
-                    {right+1}
+                    {Selected<=Faculties.length && right+1}
                 </p>
                 {
-                    Selected <= Faculties.length/2 ?
+                    Selected <= Faculties.length-2?
                         <div className="arrow">
                             <div className="rightArrow" onClick={handleRight}>
                                 <Image aria-disabled="true" src="/right.svg" alt="" fill className="image"/>
