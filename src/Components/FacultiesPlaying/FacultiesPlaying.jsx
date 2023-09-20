@@ -174,6 +174,27 @@ export default function FacultiesPlaying()
                     "medals": 15
                 }
             ] 
+        },
+        {
+            "name": "FARAL9",
+            "image": "/farmacia_alimentos.svg",
+            "best-players": [],
+            "sports":{
+                "individual": [],
+                "collective": []
+            },
+            "position": 10,
+            "golden-medals": 1,
+            "silver-medals": 0,
+            "bronze-medals": 4,
+            "best-historical-result": "",
+            "prev-editions": [
+                {
+                    "edition": "L(50)",
+                    "place": "5to",
+                    "medals": 15
+                }
+            ] 
         }
     ]
 
@@ -204,21 +225,22 @@ export default function FacultiesPlaying()
         if (+selected[0].innerHTML === right+1)
         {
             document.getElementById(left).classList.add("selected")
-            setSelected(left+1)
+            setSelected(right+3)
             document.getElementById(right).classList.remove("selected")
-            setLeftCard({"name": Faculties[right+3].name,"image": Faculties[right+3].image})
-            setRightCard({"name": Faculties[right+4].name,"image": Faculties[right+4].image})
-            setLeft(right+1)
-            setRight(right+2)
+            Faculties[right+3] && setLeftCard({"name": Faculties[right+3].name,"image": Faculties[right+3].image})
+            Faculties[right+4] && setRightCard({"name": Faculties[right+4].name,"image": Faculties[right+4].image})
+            setLeft(right+3)
+            setRight(right+4)
         }
         else
         {
             document.getElementById(left).classList.remove("selected")
-            setSelected(left+1)
+            setSelected(right+2)
             document.getElementById(right).classList.add("selected")
-            setLeftCard({"name": Faculties[right+1].name,"image": Faculties[right+1].image})
-            setRightCard({"name": Faculties[right+2].name,"image": Faculties[right+2].image})
+            Faculties[right+1] && setLeftCard({"name": Faculties[right+1].name,"image": Faculties[right+1].image})
+            Faculties[right+2] && setRightCard({"name": Faculties[right+2].name,"image": Faculties[right+2].image})
         }
+        console.log(Selected <= Faculties.length/2)
     }
     const handleLeft=()=>{
         var selected = document.getElementsByClassName("selected")
@@ -264,10 +286,10 @@ export default function FacultiesPlaying()
                     {left+1}
                 </p>
                 <p className="pageNumb" id={right}>
-                    {right < Faculties.length/2 && right+1}
+                    {right+1}
                 </p>
                 {
-                    Selected < Faculties.length/2 - 1 ?
+                    Selected <= Faculties.length/2 ?
                         <div className="arrow">
                             <div className="rightArrow" onClick={handleRight}>
                                 <Image aria-disabled="true" src="/right.svg" alt="" fill className="image"/>
