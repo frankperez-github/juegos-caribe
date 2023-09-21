@@ -6,7 +6,6 @@ export default function BreadCrumbs()
 {
     const [route, setRoute] = useState(["Inicio"])
     var Color = "gray";
-    const { pathname } = useRouter()
     useEffect(()=>
     {
         const splittedRoute = location.href.split("/")
@@ -44,7 +43,7 @@ export default function BreadCrumbs()
     return(
         <div className="BreadCrumbs MobileView">
             {
-                !noCrumbsPages.includes(pathname) &&
+                !noCrumbsPages.includes(location.pathname) &&
                 route.map((crumb, index)=>{
                     if (index===route.length-1) {
                         Color = "#5a1024"
