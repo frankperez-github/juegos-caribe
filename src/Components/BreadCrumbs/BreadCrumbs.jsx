@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from "react"
 import "./BreadCrumbs.css"
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
 export default function BreadCrumbs()
 {
     const [route, setRoute] = useState(["Inicio"])
@@ -19,6 +19,7 @@ export default function BreadCrumbs()
     },[])
 
     const router = useRouter()
+    const pathname = usePathname()
 
     const changeRoute=(crumb)=>
     {
@@ -43,7 +44,7 @@ export default function BreadCrumbs()
     return(
         <div className="BreadCrumbs MobileView">
             {
-                !noCrumbsPages.includes(location.pathname) &&
+                !noCrumbsPages.includes(pathname) &&
                 route.map((crumb, index)=>{
                     if (index===route.length-1) {
                         Color = "#5a1024"
