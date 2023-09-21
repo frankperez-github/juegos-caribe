@@ -7,7 +7,7 @@ export default function BreadCrumbs()
     var Color = "gray"
     useEffect(()=>
     {
-        const splittedRoute = window.location.href.split("/")
+        const splittedRoute = location.href.split("/")
         for (let i = 0; i < splittedRoute.length; i++) {
             const crumb = splittedRoute[i] === "Contactenos" ? "Contáctenos" : splittedRoute[i]
             if(i >= 3 && !route.includes(crumb))
@@ -42,7 +42,7 @@ export default function BreadCrumbs()
     return(
         <div className="BreadCrumbs">
             {
-                !noCrumbsPages.includes(window.location.pathname) &&
+                !noCrumbsPages.includes(location.pathname) &&
                 route.map((crumb, index)=>{
                     if (index===route.length-1) {
                         Color = "#5a1024"
