@@ -1,9 +1,11 @@
 .MobileView
 {
+  background-color: rgb(245, 245, 245);
   display: none;
 }
 .DesktopView
 {
+  background-color: rgb(245, 245, 245);
   display: block;
 }
 .image{
@@ -20,6 +22,11 @@
   padding: 2% 0%;
   margin-bottom: 5%;
 }
+.container
+{
+    padding: 0 5%;
+}
+
 
 
 

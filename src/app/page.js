@@ -9,7 +9,7 @@ import Footer from '@/Components/Footer/Footer'
 
 export default function Home() {
   return (
-    <main>
+    <main className='main'>
       <Header />
       <Presentation />
       <MedalTable />

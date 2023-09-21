@@ -1,0 +1,78 @@
+.ContactUs h2
+{
+    margin-top: 12%;
+    border-bottom: solid;
+    border-color: #5a1024;
+    border-width: 1px;
+    padding-bottom: 3%;
+    text-align: center;
+    margin-bottom: 10%;
+}
+.ContactUs h3
+{
+    width: 98%;
+    margin-top: 10%;
+    padding-left: 1%;
+    color: #5a1024c7;
+    text-align: center;
+}
+.ContactUs p
+{
+    margin: 5% 0;
+    margin-bottom: 15%;
+}
+.Form
+{
+    color: rgb(15, 17, 22);
+    text-align: left;
+    border-radius: 10px;
+    background-color: rgb(219, 219, 219);
+    backdrop-filter: blur(10px);
+    padding: 5%;
+    padding-top: 2%;
+    margin-bottom: 20%;
+}
+.Form h3
+{
+    text-align: left;
+}
+.Form input, .Form textarea
+{
+    width: 90%;
+    border-radius: 6px;
+    padding: 5%;
+    margin-top: 2%;
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(219, 219, 219);
+}
+.Form textarea
+{
+    height: 10vh;
+    margin-bottom: 2%;
+}
+.Form p
+{
+    margin-bottom: 0% !important;
+}
+.buttonsRow
+{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 40%;
+}
+.buttonsRow button
+{
+    border-radius: 8px;
+    border-color: #b3b3b3;
+    border-width: 1px;
+    padding: 5%;
+    width: 48%;
+}
+.buttonsRow button:last-of-type
+{
+    font-weight: bold;
+    background-color: #5a1024;
+    color: white;
+}

@@ -1,4 +1,8 @@
-
+.Footer
+{
+    padding-top: 7%;
+    background-color: white;
+}
 .leftColumn:first-of-type
 {
     margin-left: -13%;
