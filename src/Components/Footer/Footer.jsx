@@ -19,7 +19,7 @@ export default function Footer()
                     <div className="group">
                         <a href="/">Inicio</a><br /><br />
                         <div className="groupInfo">
-                            <p  classname="groupHead" >Medallero</p>
+                            <p  className="groupHead" >Medallero</p>
                             <p>Deportes del Día</p>
                             <p>Resumen de Noticias</p>
                         </div>
@@ -27,7 +27,7 @@ export default function Footer()
                     <div className="group">
                         <a href="/Deportes">Deportes</a><br /><br />
                         <div className="groupInfo">
-                            <p  classname="groupHead" >Individuales</p>
+                            <p  className="groupHead" >Individuales</p>
                             <p>Colectivos</p>
                         </div>
                     </div>
@@ -36,14 +36,14 @@ export default function Footer()
                     <div className="group">
                         <a href="/Noticias">Noticias</a><br /><br />
                         <div className="groupInfo">
-                            <p  classname="groupHead">Noticias relevantes</p>
+                            <p  className="groupHead">Noticias relevantes</p>
                         </div>
                     </div>
                     
                     <div className="group">
                         <a href="/Juegos_Caribe">Juegos Caribe</a><br /><br />
                         <div className="groupInfo">
-                            <p  classname="groupHead" >Reglamento</p>
+                            <p  className="groupHead" >Reglamento</p>
                             <p>Comisión</p>
                         </div>
                     </div>

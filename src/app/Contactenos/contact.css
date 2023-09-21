@@ -1,6 +1,6 @@
 .ContactUs h2
 {
-    margin-top: 12%;
+    padding: 12%;
     border-bottom: solid;
     border-color: #5a1024;
     border-width: 1px;
@@ -26,8 +26,8 @@
     color: rgb(15, 17, 22);
     text-align: left;
     border-radius: 10px;
-    background-color: rgb(219, 219, 219);
-    backdrop-filter: blur(10px);
+    background-color: rgb(230, 230, 230);
+    backdrop-filter: blur(15px);
     padding: 5%;
     padding-top: 2%;
     margin-bottom: 20%;
@@ -44,7 +44,7 @@
     margin-top: 2%;
     border: solid;
     border-width: 1px;
-    border-color: rgb(219, 219, 219);
+    border-color: rgb(85, 85, 85);
 }
 .Form textarea
 {
@@ -53,6 +53,7 @@
 }
 .Form p
 {
+    margin-top: 7%;
     margin-bottom: 0% !important;
 }
 .buttonsRow

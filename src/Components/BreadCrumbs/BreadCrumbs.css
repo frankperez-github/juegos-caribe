@@ -1,0 +1,27 @@
+.crumbsArrow
+{
+    width: 30%;
+}
+.crumbs
+{
+    cursor: pointer;
+    display: flex;
+    padding-right: 2%;
+    align-items: center;
+}
+.crumbs h3
+{
+    font-weight: 300;
+    font-size: 35px;
+    padding-right: 10%;
+    padding-bottom: 2%;
+}
+.BreadCrumbs
+{
+    background-color: rgb(243, 243, 243);
+    padding: 2% 4%;
+    justify-content: left;
+    display: flex;
+    margin-bottom: 2%;
+    box-shadow: 0px 10px 30px 2px #cacaca70;
+}

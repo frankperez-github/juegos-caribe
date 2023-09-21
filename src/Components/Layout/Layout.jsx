@@ -1,10 +1,12 @@
 'use client'
 import { useState } from "react"
-import "../Header/header.css"
+import "./layout.css"
 import "../../app/globals.css"
 import Image from 'next/image'
+import BreadCrumbs from "../BreadCrumbs/BreadCrumbs"
+import Footer from "../Footer/Footer"
 
-export default function Header()
+export default function Layout({children})
 {
     const [lenguage, setLenguage] = useState("es")
     return(
@@ -32,6 +34,9 @@ export default function Header()
             <div className="DesktopView">
 
             </div>
+            <BreadCrumbs />
+            {children}
+            <Footer />
         </div>
     )
 }
