@@ -42,7 +42,7 @@ export default function BreadCrumbs()
         "/"
     ]
     return(
-        <div className="BreadCrumbs">
+        <div className="BreadCrumbs MobileView">
             {
                 !noCrumbsPages.includes(pathname) &&
                 route.map((crumb, index)=>{
