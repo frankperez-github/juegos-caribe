@@ -1,12 +1,12 @@
 [
     {
         "session": "morning",
-        "sport": "football",
+        "sport": "tenis de campo",
         "teams":["ISDi", "EKO"],
         "players": ["ISDi", "EKO"],
         "scores": [3,1],
         "status": "Finalizado",
-        "location": "Tambloncillo del Seder",
+        "location": "Seder",
         "stage": "Fase de Grupos",
         "details":{
             
@@ -15,12 +15,12 @@
     },
     {
         "session": "afternoon",
-        "sport": "football",
+        "sport": "futbol",
         "teams":["ISDi", "EKO"],
         "players": ["ISDi", "EKO"],
         "scores": [3,1],
         "status": "Finalizado",
-        "location": "Tambloncillo del Seder",
+        "location": "Seder",
         "stage": "Fase de Grupos",
         "details":{
             
@@ -29,12 +29,12 @@
     },
     {
         "session": "morning",
-        "sport": "football",
+        "sport": "volleyball",
         "teams":["ISDi", "EKO"],
         "players": ["ISDi", "EKO"],
         "scores": [3,1],
         "status": "Finalizado",
-        "location": "Tambloncillo del Seder",
+        "location": "Seder",
         "stage": "Fase de Grupos",
         "details":{
             

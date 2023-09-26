@@ -1,12 +1,30 @@
 
 .PlayCard
 {
+    background-color: white;
+    box-shadow: 0 0 20px 1px rgb(207, 207, 207);
     border-radius: 15px;
+    padding: 5%;
     margin: 7.5% 0;
 }
 .row
 {
     display: flex;
+}
+.teamsRow
+{
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
+    padding-bottom: 2%;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: gray;
+    margin-bottom: 3%;
+}
+.teamsRow p
+{
+    width: 33.3%;
 }
 .cardFooter
 {
@@ -15,7 +33,22 @@
 }
 .details
 {
-    width: 100%;
+    border-top: solid;
+    border-width: 1px;
+    border-color: rgb(236, 236, 236);
+    width: 110%;
+    margin-left: -5%;
     text-align: center;
-    padding: 5% 0;
+    padding-top: 5%;
+    margin-top: 5%;
+}
+.column
+{
+    width: 33.3%;
+    text-align: center;
+}
+.center h2:first-of-type
+{
+    width: 100%;
+    padding-bottom: 15%;
 }

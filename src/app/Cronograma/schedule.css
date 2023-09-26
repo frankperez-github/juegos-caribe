@@ -1,6 +1,5 @@
 h2
 {
-    padding-top: 5%;
     text-align: center;
 }
 .cornerCircle
@@ -43,4 +42,9 @@ h2
     display: flex;
     justify-content: space-between;
     width: 20%;
+}
+.session
+{
+    margin-top: 15%;
+    color: #5a1024;
 }

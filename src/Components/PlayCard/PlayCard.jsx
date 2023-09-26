@@ -35,23 +35,25 @@ export default function PlayCard({play})
     return(
         <div className="MobileView PlayCard">
             <div className="row">
-                <div className="left">
+                <div className="left column">
                     <div className="facLogo">
                         <Image src={logo1} fill className="image" alt=""/>
                     </div>
-                    {play.teams[0]}
                 </div>
-                <div className="center">
+                <div className="center column">
                     <h2>{play.sport}</h2>
                     <h2>{play.scores[0]}-{play.scores[1]}</h2>
-                    <p>{play.status}</p>
                 </div>
-                <div className="right">
+                <div className="right column">
                 <div className="facLogo">
                         <Image src={logo2} fill className="image" alt=""/>
-                        {play.teams[1]}
                     </div>
                 </div>
+            </div>
+            <div className="row teamsRow">
+                <p>{play.teams[0]}</p>
+                <p>{play.status}</p>
+                <p>{play.teams[1]}</p>
             </div>
             <div className="cardFooter">
                 <p>{play.location}</p>
