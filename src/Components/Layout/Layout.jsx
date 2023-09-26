@@ -34,7 +34,9 @@ export default function Layout({children})
             <div className="DesktopView">
 
             </div>
-            <BreadCrumbs />
+            <div className="MobileView">
+                <BreadCrumbs />
+            </div>
             {children}
             <Footer />
         </div>

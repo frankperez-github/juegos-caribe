@@ -1,4 +1,46 @@
 h2
 {
+    padding-top: 5%;
     text-align: center;
+}
+.cornerCircle
+{
+    width: 10%;
+}
+.scheduleHead
+{
+    margin: 7% 0;
+    display: flex;
+    justify-content: space-between;
+}
+.date
+{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+.calendar
+{
+    padding-top: 3%;
+    width: 10%;
+}
+.calendarImage
+{
+    width: 90%;
+}
+.arr
+{
+    width: 50%;
+}
+.arrowImg
+{
+    width: 40%;
+}
+.filterButt
+{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
 }
