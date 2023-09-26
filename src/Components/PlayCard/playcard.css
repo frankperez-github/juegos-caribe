@@ -1,0 +1,21 @@
+
+.PlayCard
+{
+    border-radius: 15px;
+    margin: 7.5% 0;
+}
+.row
+{
+    display: flex;
+}
+.cardFooter
+{
+    display: flex;
+    justify-content: space-between;
+}
+.details
+{
+    width: 100%;
+    text-align: center;
+    padding: 5% 0;
+}
