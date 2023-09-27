@@ -4,7 +4,7 @@ import "./schedule.css"
 import Layout from "@/Components/Layout/Layout";
 import Image from "next/image"
 import PlayCard from "@/Components/PlayCard/PlayCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Schedule()
 {
@@ -22,12 +22,31 @@ export default function Schedule()
     const [filteredSports, setFilteredSports] = useState([])
     const [filteredGender, setFilteredGender] = useState([])
     const [filteredLocation, setFilteredLocation] = useState([])
+
+    const handleSelect=(e)=>{
+        const classname = e.target.className
+        const elements = document.getElementsByClassName(classname)
+        console.log(elements)
+        
+    }
+
+    const [filterButtonStyle, setFilterButtonStyle] = useState({})
+    useEffect(()=>{
+        if(filtering === true)
+        {
+            setFilterButtonStyle({backgroundColor: "white", boxShadow: "0px 0px 10px 1px rgb(209, 209, 209)"})
+        }
+        else
+        {
+            setFilterButtonStyle({})
+        }
+    },[filtering])
     
     return(
         <div className="Schedule MobileView">
             <Layout>
                 <div className="cornerCircle">
-                    <Image src="/smallBall.svg" fill className="image"/>
+                    <Image src="/smallBall.svg" fill className="image" alt=""/>
                 </div>
                 <div className="container">
                     <h2>Cronograma</h2>
@@ -36,27 +55,64 @@ export default function Schedule()
                             <p>{days[date.getDay()]}, {date.getDate()} de {months[date.getMonth()]} {date.getFullYear()}</p>
                             <div className="calendar">
                                 <div className="calendarImage" id="calendar">
-                                    <Image src="/lightCalendar.svg" fill className="image"/>
+                                    <Image src="/lightCalendar.svg" fill className="image" alt=""/>
                                 </div>
                             </div>
                         </div>
-                        <div className="filterButt">
+                        <div className="filterButt" style={filterButtonStyle} onClick={()=>setFiltering(!filtering)}>
                             <p>Filtro</p>
                             <div className="arr">
                                 <div className="arrowImg">
-                                    <Image src="/more.svg" fill className="image"/>
+                                    <Image src={filtering ? "/less.svg" :"/more.svg"} alt="" fill className="image"/>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {
+                        filtering &&
+                            <div className="FiltersSelection">
+                                <div className="filterHead">
+                                    <h4>Filtros del día</h4>
+                                </div>
+                                <div className="filter">
+                                    <h4 className="filterTitle">Horario</h4>
+                                    <div className="row">
+                                        <div className="option">
+                                            <input type="radio"  name="morning" className="filterSess" onClick={handleSelect}/>
+                                            <p>Mañana</p>
+                                        </div>
+                                        <div className="option">
+                                            <input type="radio" name="afternoon" className="filterSess" onClick={handleSelect} />
+                                            <p>Tarde</p>
+                                        </div>
+                                        <div className="option">
+                                            <input type="radio" name="" className="filterSess" onClick={handleSelect} />
+                                            <p>Todo el día</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="filter">
+                                    <h4 className="filterTitle">Facultades</h4>
+                                </div>
+                                <div className="filter">
+                                    <h4 className="filterTitle">Deportes</h4>
+                                </div>
+                                <div className="filter">
+                                    <h4 className="filterTitle">Sexo</h4>
+                                </div>
+                                <div className="filter">
+                                    <h4 className="filterTitle">Sede</h4>
+                                </div>
+                            </div>
+                    }
                     <div className="morning">
                         <p className="session">Sesión de la mañana</p>
                         {
-                            Cronograma.map((play)=>{
+                            Cronograma.map((play, index)=>{
                                 if(play.session === "morning")
                                 {
                                     return(
-                                        <PlayCard play={play}/>
+                                        <PlayCard key={index} play={play}/>
                                     )
                                 }
                             })
@@ -65,11 +121,11 @@ export default function Schedule()
                     <div className="afternoon">
                         <p className="session">Sesión de la tarde</p>
                         {
-                            Cronograma.map((play)=>{
+                            Cronograma.map((play, index)=>{
                                 if(play.session === "afternoon")
                                 {
                                     return(
-                                        <PlayCard play={play}/>
+                                        <PlayCard key={index} play={play}/>
                                     )
                                 }
                             })

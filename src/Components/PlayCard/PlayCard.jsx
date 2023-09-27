@@ -41,8 +41,8 @@ export default function PlayCard({play})
                     </div>
                 </div>
                 <div className="center column">
-                    <h2>{play.sport}</h2>
-                    <h2>{play.scores[0]}-{play.scores[1]}</h2>
+                    <h4>{play.sport}</h4>
+                    <h4>{play.scores[0]}-{play.scores[1]}</h4>
                 </div>
                 <div className="right column">
                 <div className="facLogo">
