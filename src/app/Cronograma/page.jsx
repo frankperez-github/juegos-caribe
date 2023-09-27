@@ -16,21 +16,21 @@ export default function Schedule()
     const date = new Date()
 
     // Filter
+    const [filtered, setFiltered] = useState(Cronograma)
     const [filtering, setFiltering] = useState(false)
-    const [filteredSession, setFilteredSession] = useState([])
+    const [filteredSession, setFilteredSession] = useState(["morning", "afternoon"])
     const [filteredFaculties, setFilteredFaculties] = useState([])
     const [filteredSports, setFilteredSports] = useState([])
     const [filteredGender, setFilteredGender] = useState([])
     const [filteredLocation, setFilteredLocation] = useState([])
 
     const handleSelect=(e)=>{
-        const classname = e.target.className
-        const elements = document.getElementsByClassName(classname)
-        console.log(elements)
-        
+        document.sessionForm.session.value = e.target.value
+        setFilteredSession(e.target.value)
     }
 
     const [filterButtonStyle, setFilterButtonStyle] = useState({})
+    
     useEffect(()=>{
         if(filtering === true)
         {
@@ -40,7 +40,19 @@ export default function Schedule()
         {
             setFilterButtonStyle({})
         }
-    },[filtering])
+        var Filtered = []
+        Cronograma.map((play)=>{
+            if (filteredSession.includes(play.session))
+            {
+                Filtered = [...Filtered, play]
+            }
+            if (filteredFaculties.includes(play.teams[0]) || filteredFaculties.includes(play.teams[1]) )
+            {
+                Filtered = [...Filtered, play]
+            }
+        })
+        setFiltered(Filtered)
+    },[filtering, filteredSession])
     
     return(
         <div className="Schedule MobileView">
@@ -76,20 +88,20 @@ export default function Schedule()
                                 </div>
                                 <div className="filter">
                                     <h4 className="filterTitle">Horario</h4>
-                                    <div className="row">
+                                    <form name="sessionForm" className="row">
                                         <div className="option">
-                                            <input type="radio"  name="morning" className="filterSess" onClick={handleSelect}/>
+                                            <input type="radio" name="session"  className="filterSession" value="morning" onClick={handleSelect}/>
                                             <p>Mañana</p>
                                         </div>
                                         <div className="option">
-                                            <input type="radio" name="afternoon" className="filterSess" onClick={handleSelect} />
+                                            <input type="radio" name="session" className="filterSession" value="afternoon" onClick={handleSelect} />
                                             <p>Tarde</p>
                                         </div>
                                         <div className="option">
-                                            <input type="radio" name="" className="filterSess" onClick={handleSelect} />
+                                            <input type="radio" name="session" className="filterSession" value={["morning", "afternoon"]} onClick={handleSelect} />
                                             <p>Todo el día</p>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                                 <div className="filter">
                                     <h4 className="filterTitle">Facultades</h4>
@@ -108,7 +120,7 @@ export default function Schedule()
                     <div className="morning">
                         <p className="session">Sesión de la mañana</p>
                         {
-                            Cronograma.map((play, index)=>{
+                            filtered.map((play, index)=>{
                                 if(play.session === "morning")
                                 {
                                     return(
@@ -121,7 +133,7 @@ export default function Schedule()
                     <div className="afternoon">
                         <p className="session">Sesión de la tarde</p>
                         {
-                            Cronograma.map((play, index)=>{
+                            filtered.map((play, index)=>{
                                 if(play.session === "afternoon")
                                 {
                                     return(
