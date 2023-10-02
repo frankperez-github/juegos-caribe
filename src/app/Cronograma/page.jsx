@@ -36,28 +36,25 @@ export default function Schedule()
     }
     
     const handleIconSelect=(e)=>{
-        while(e.target.className !== "iconFilter")
+        while(!e.target.className.split(" ").includes("iconFilter"))
         {
             e.target = e.target.parentNode
         }
-        console.log(e.target)
-        // if (e.target.className.split(' ').includes("faculty"))
-        // {
-        //     // Selected
-        //     const parent = e.target
-        //     if(filteredFaculties.includes(e.target.id))
-        //     {
-        //         parent.classList.add("selectedIcon")
-        //         setFilteredFaculties(filteredFaculties.filter(x=>x!==e.target.id))
-        //     }
-        //     // Selecting now
-        //     else
-        //     {
-        //         parent.classList.add("selectedIcon")
-        //         setFilteredFaculties([...filteredFaculties, e.target.id])
-        //     }
-        // }
-        // console.log(e.target.className)
+        if (e.target.className.split(' ').includes("faculty"))
+        {
+            // Selected
+            if(filteredFaculties.includes(e.target.id))
+            {
+                e.target.classList.remove("selectedIcon")
+                setFilteredFaculties(filteredFaculties.filter(x=>x!==e.target.id))
+            }
+            // Selecting now
+            else
+            {
+                e.target.classList.add("selectedIcon")
+                setFilteredFaculties([...filteredFaculties, e.target.id])
+            }
+        }
     }
 
     const [filterButtonStyle, setFilterButtonStyle] = useState({})
@@ -107,7 +104,6 @@ export default function Schedule()
             }
         })
         setFiltered(Filtered)
-
     },[filtering, filteredSession, filteredFaculties])
     
     return(
@@ -146,7 +142,7 @@ export default function Schedule()
 
                                 <div className="filter">
                                     <h4 className="filterTitle">Horario</h4>
-                                    <form name="sessionForm" className="row">
+                                    <form name="sessionForm" className="row" value={filteredSession}>
                                         <div className="option">
                                             <input type="radio" name="session"  className="filterSession" value="morning" onClick={handleRadioSelect}/>
                                             <p>Mañana</p>
@@ -173,11 +169,11 @@ export default function Schedule()
                                     {
                                         faculties.map((facult, index)=>(
                                             <SwiperSlide key={index} >
-                                                <div className="iconFilter"  onClick={e=>handleIconSelect(e)}>
-                                                    <div className="iconImage  faculty">
-                                                        <Image alt=""  id={facult} src={Faculties.filter((fac)=>fac.name === facult)[0].image} fill className="image faculty"/>
+                                                <div className="iconFilter faculty" id={facult} onClick={handleIconSelect}>
+                                                    <div className="iconImage">
+                                                        <Image alt="" src={Faculties.filter((fac)=>fac.name === facult)[0].image} fill className="image faculty"/>
                                                     </div>
-                                                    <p className="faculty" id={facult}>{facult}</p>
+                                                    <p>{facult}</p>
                                                 </div>
                                             </SwiperSlide>
                                         ))
