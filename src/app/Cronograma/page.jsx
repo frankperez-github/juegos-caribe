@@ -1,5 +1,9 @@
 'use client'
 import useSiteContext from "@/hooks/useSiteContext";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css/navigation';
+import 'swiper/css';
 import "./schedule.css"
 import Layout from "@/Components/Layout/Layout";
 import Image from "next/image"
@@ -8,28 +12,65 @@ import { useEffect, useState } from "react";
 
 export default function Schedule()
 {
-    const {Cronograma} = useSiteContext()
+    const {Cronograma, Faculties} = useSiteContext()
 
     const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Deciembre"];
     const days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
 
     const date = new Date()
 
+    const [faculties, setFaculties] = useState([])
+
     // Filter
     const [filtered, setFiltered] = useState(Cronograma)
     const [filtering, setFiltering] = useState(false)
-    const [filteredSession, setFilteredSession] = useState(["morning", "afternoon"])
+    const [filteredSession, setFilteredSession] = useState([])
     const [filteredFaculties, setFilteredFaculties] = useState([])
     const [filteredSports, setFilteredSports] = useState([])
     const [filteredGender, setFilteredGender] = useState([])
     const [filteredLocation, setFilteredLocation] = useState([])
 
-    const handleSelect=(e)=>{
+    const handleRadioSelect=(e)=>{
         document.sessionForm.session.value = e.target.value
         setFilteredSession(e.target.value)
     }
+    
+    const handleIconSelect=(e)=>{
+        // if (e.target.className.split(' ').includes("faculty"))
+        // {
+        //     // Selected
+        //     if(filteredFaculties.includes(e.target.id))
+        //     {
+
+        //     }
+        //     // Selecting now
+        //     else
+        //     {
+        //         const parent = e.target.parentNode.parentNode
+        //         parent.classList.add("selectedIcon")
+        //         setFilteredFaculties([...filteredFaculties, e.target.id])
+        //     }
+        // }
+        e.stopPropagation()
+        console.log(e.target)
+    }
 
     const [filterButtonStyle, setFilterButtonStyle] = useState({})
+
+    useEffect(()=>{
+        //Setting playing faculties
+        var facults = []
+        Cronograma.map((play)=>
+        {
+            for (let i = 0; i < play.teams.length; i++) {
+                if(!facults.includes(play.teams[i]))
+                {
+                    facults = [...facults, play.teams[i]]
+                }                
+            }
+        })
+        setFaculties(facults)
+    },[Cronograma])
     
     useEffect(()=>{
         if(filtering === true)
@@ -41,18 +82,28 @@ export default function Schedule()
             setFilterButtonStyle({})
         }
         var Filtered = []
+        var erase = []
         Cronograma.map((play)=>{
-            if (filteredSession.includes(play.session))
+            //If a game doesn't have a filtered option is eliminated
+            if (filteredSession.length !== 0 && !filteredSession.includes(play.session))
             {
-                Filtered = [...Filtered, play]
+                erase.push(play)
             }
-            if (filteredFaculties.includes(play.teams[0]) || filteredFaculties.includes(play.teams[1]) )
+            if (filteredFaculties.length !== 0 && !filteredFaculties.includes(play.teams[0]) && !filteredFaculties.includes(play.teams[1]) )
+            {
+                erase.push(play)
+            }
+        })
+        Cronograma.map((play)=>
+        {
+            if(!erase.includes(play))
             {
                 Filtered = [...Filtered, play]
             }
         })
         setFiltered(Filtered)
-    },[filtering, filteredSession])
+
+    },[filtering, filteredSession, filteredFaculties])
     
     return(
         <div className="Schedule MobileView">
@@ -83,35 +134,60 @@ export default function Schedule()
                     {
                         filtering &&
                             <div className="FiltersSelection">
+
                                 <div className="filterHead">
                                     <h4>Filtros del día</h4>
                                 </div>
+
                                 <div className="filter">
                                     <h4 className="filterTitle">Horario</h4>
                                     <form name="sessionForm" className="row">
                                         <div className="option">
-                                            <input type="radio" name="session"  className="filterSession" value="morning" onClick={handleSelect}/>
+                                            <input type="radio" name="session"  className="filterSession" value="morning" onClick={handleRadioSelect}/>
                                             <p>Mañana</p>
                                         </div>
                                         <div className="option">
-                                            <input type="radio" name="session" className="filterSession" value="afternoon" onClick={handleSelect} />
+                                            <input type="radio" name="session" className="filterSession" value="afternoon" onClick={handleRadioSelect} />
                                             <p>Tarde</p>
                                         </div>
                                         <div className="option">
-                                            <input type="radio" name="session" className="filterSession" value={["morning", "afternoon"]} onClick={handleSelect} />
+                                            <input type="radio" name="session" className="filterSession" value={["morning", "afternoon"]} onClick={handleRadioSelect} />
                                             <p>Todo el día</p>
                                         </div>
                                     </form>
                                 </div>
+
                                 <div className="filter">
                                     <h4 className="filterTitle">Facultades</h4>
+                                    <Swiper
+                                    className="swiper"
+                                    spaceBetween={40}
+                                    slidesPerView={4}
+                                    navigation
+                                    modules={[Navigation]}>
+                                    {
+                                        faculties.map((facult, index)=>(
+                                            <SwiperSlide key={index} >
+                                                <div className="iconFilter"  onClick={e=>handleIconSelect(e)}>
+                                                    <div className="iconImage  faculty">
+                                                        <Image alt=""  id={facult} src={Faculties.filter((fac)=>fac.name === facult)[0].image} fill className="image faculty"/>
+                                                    </div>
+                                                    <p className="faculty" id={facult}>{facult}</p>
+                                                </div>
+                                            </SwiperSlide>
+                                        ))
+                                    }
+                                    </Swiper>
                                 </div>
+
                                 <div className="filter">
                                     <h4 className="filterTitle">Deportes</h4>
                                 </div>
+                                
                                 <div className="filter">
                                     <h4 className="filterTitle">Sexo</h4>
                                 </div>
+                                
                                 <div className="filter">
                                     <h4 className="filterTitle">Sede</h4>
                                 </div>

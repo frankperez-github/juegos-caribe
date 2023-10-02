@@ -40,5 +40,19 @@
             
         }
 
+    },
+    {
+        "session": "morning",
+        "sport": "Cancha",
+        "teams":["Psico", "MATCOM"],
+        "players": ["Psico", "MATCOM"],
+        "scores": [8,15],
+        "status": "Finalizado",
+        "location": "Seder",
+        "stage": "4tos de final",
+        "details":{
+            
+        }
+
     }
 ]
