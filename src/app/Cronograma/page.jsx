@@ -36,23 +36,28 @@ export default function Schedule()
     }
     
     const handleIconSelect=(e)=>{
+        while(e.target.className !== "iconFilter")
+        {
+            e.target = e.target.parentNode
+        }
+        console.log(e.target)
         // if (e.target.className.split(' ').includes("faculty"))
         // {
         //     // Selected
+        //     const parent = e.target
         //     if(filteredFaculties.includes(e.target.id))
         //     {
-
+        //         parent.classList.add("selectedIcon")
+        //         setFilteredFaculties(filteredFaculties.filter(x=>x!==e.target.id))
         //     }
         //     // Selecting now
         //     else
         //     {
-        //         const parent = e.target.parentNode.parentNode
         //         parent.classList.add("selectedIcon")
         //         setFilteredFaculties([...filteredFaculties, e.target.id])
         //     }
         // }
-        e.stopPropagation()
-        console.log(e.target)
+        // console.log(e.target.className)
     }
 
     const [filterButtonStyle, setFilterButtonStyle] = useState({})
