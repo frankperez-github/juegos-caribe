@@ -9,10 +9,11 @@ import Layout from "@/Components/Layout/Layout";
 import Image from "next/image"
 import PlayCard from "@/Components/PlayCard/PlayCard";
 import { useEffect, useState } from "react";
+import { generateBuildId } from "../../../next.config";
 
 export default function Schedule()
 {
-    const {Cronograma, Faculties} = useSiteContext()
+    const {dailySchedule, Faculties, Sports} = useSiteContext()
 
     const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Deciembre"];
     const days = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
@@ -20,9 +21,10 @@ export default function Schedule()
     const date = new Date()
 
     const [faculties, setFaculties] = useState([])
+    const [sports, setSports] = useState([])
 
     // Filter
-    const [filtered, setFiltered] = useState(Cronograma)
+    const [filtered, setFiltered] = useState(dailySchedule)
     const [filtering, setFiltering] = useState(false)
     const [filteredSession, setFilteredSession] = useState([])
     const [filteredFaculties, setFilteredFaculties] = useState([])
@@ -31,8 +33,17 @@ export default function Schedule()
     const [filteredLocation, setFilteredLocation] = useState([])
 
     const handleRadioSelect=(e)=>{
-        document.sessionForm.session.value = e.target.value
-        setFilteredSession(e.target.value)
+        if(e.target.name === "session")
+        {
+            document.sessionForm.session.value = e.target.value
+            setFilteredSession(e.target.value)
+        }
+        if(e.target.name === "gender")
+        {
+            document.genderForm.gender.value = e.target.value
+            setFilteredGender(e.target.value)
+        }
+        console.log(filteredGender)
     }
     
     const handleIconSelect=(e)=>{
@@ -55,6 +66,21 @@ export default function Schedule()
                 setFilteredFaculties([...filteredFaculties, e.target.id])
             }
         }
+        if (e.target.className.split(' ').includes("sport"))
+        {
+            // Selected
+            if(filteredSports.includes(e.target.id))
+            {
+                e.target.classList.remove("selectedIcon")
+                setFilteredSports(filteredSports.filter(x=>x!==e.target.id))
+            }
+            // Selecting now
+            else
+            {
+                e.target.classList.add("selectedIcon")
+                setFilteredSports([...filteredSports, e.target.id])
+            }
+        }
     }
 
     const [filterButtonStyle, setFilterButtonStyle] = useState({})
@@ -62,8 +88,16 @@ export default function Schedule()
     useEffect(()=>{
         //Setting playing faculties
         var facults = []
-        Cronograma.map((play)=>
+        var sports = []
+        dailySchedule.map((play)=>
         {
+            //Setting Spots Available
+            if(!sports.includes(play.sport))
+            {
+                sports = [...sports, play.sport]
+            }
+
+            //Setting Faculties available
             for (let i = 0; i < play.teams.length; i++) {
                 if(!facults.includes(play.teams[i]))
                 {
@@ -72,7 +106,8 @@ export default function Schedule()
             }
         })
         setFaculties(facults)
-    },[Cronograma])
+        setSports(sports)
+    },[dailySchedule])
     
     useEffect(()=>{
         if(filtering === true)
@@ -85,7 +120,7 @@ export default function Schedule()
         }
         var Filtered = []
         var erase = []
-        Cronograma.map((play)=>{
+        dailySchedule.map((play)=>{
             //If a game doesn't have a filtered option is eliminated
             if (filteredSession.length !== 0 && !filteredSession.includes(play.session))
             {
@@ -95,8 +130,17 @@ export default function Schedule()
             {
                 erase.push(play)
             }
+            if (filteredSports.length !== 0 && !filteredSports.includes(play.sport))
+            {
+                erase.push(play)
+            }
+            if (filteredGender.length !== 0 && !filteredGender.includes(play.gender))
+            {
+                console.log(play+"and"+filteredGender)
+                erase.push(play)
+            }
         })
-        Cronograma.map((play)=>
+        dailySchedule.map((play)=>
         {
             if(!erase.includes(play))
             {
@@ -104,7 +148,7 @@ export default function Schedule()
             }
         })
         setFiltered(Filtered)
-    },[filtering, filteredSession, filteredFaculties])
+    },[filtering, filteredSession, filteredFaculties, filteredSports, filteredGender])
     
     return(
         <div className="Schedule MobileView">
@@ -162,7 +206,7 @@ export default function Schedule()
                                     <h4 className="filterTitle">Facultades</h4>
                                     <Swiper
                                     className="swiper"
-                                    spaceBetween={40}
+                                    spaceBetween={15}
                                     slidesPerView={4}
                                     navigation
                                     modules={[Navigation]}>
@@ -183,10 +227,48 @@ export default function Schedule()
 
                                 <div className="filter">
                                     <h4 className="filterTitle">Deportes</h4>
+                                    <Swiper
+                                    className="swiper"
+                                    spaceBetween={15}
+                                    slidesPerView={4}
+                                    navigation
+                                    modules={[Navigation]}>
+                                    {
+                                        sports.map((sport, index)=>(
+                                            <SwiperSlide key={index} >
+                                                <div className="iconFilter sport" id={sport} onClick={handleIconSelect}>
+                                                    <div className="iconImage SportIcon">
+                                                        {
+                                                            Sports.filter(x=>x.name === sport)[0] !== undefined &&
+                                                            <div className="icon">
+                                                                <Image alt="" src={Sports.filter(x=>x.name === sport)[0].image} fill className="image sport"/>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                    <p>{sport}</p>
+                                                </div>
+                                            </SwiperSlide>
+                                        ))
+                                    }
+                                    </Swiper>
                                 </div>
                                 
                                 <div className="filter">
                                     <h4 className="filterTitle">Sexo</h4>
+                                    <form name="genderForm" className="row" value={filteredGender}>
+                                        <div className="option">
+                                            <input type="radio" name="gender"  className="filterGender" value="female" onClick={handleRadioSelect}/>
+                                            <p>Femenino</p>
+                                        </div>
+                                        <div className="option">
+                                            <input type="radio" name="gender" className="filterGender" value="male" onClick={handleRadioSelect} />
+                                            <p>Masculino</p>
+                                        </div>
+                                        <div className="option">
+                                            <input type="radio" name="gender" className="filterGender" value={["female", "male"]} onClick={handleRadioSelect} />
+                                            <p>Ambos sexos</p>
+                                        </div>
+                                    </form>
                                 </div>
                                 
                                 <div className="filter">

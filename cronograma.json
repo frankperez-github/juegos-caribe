@@ -1,7 +1,8 @@
 [
     {
         "session": "morning",
-        "sport": "tenis de campo",
+        "gender": "male",
+        "sport": "Tenis de Campo",
         "teams":["ISDi", "EKO"],
         "players": ["ISDi", "EKO"],
         "scores": [3,1],
@@ -15,7 +16,8 @@
     },
     {
         "session": "afternoon",
-        "sport": "futbol",
+        "gender": "male",
+        "sport": "Fútbol",
         "teams":["ISDi", "EKO"],
         "players": ["ISDi", "EKO"],
         "scores": [3,1],
@@ -29,7 +31,8 @@
     },
     {
         "session": "morning",
-        "sport": "volleyball",
+        "gender": "female",
+        "sport": "Voleibol",
         "teams":["ISDi", "EKO"],
         "players": ["ISDi", "EKO"],
         "scores": [3,1],
@@ -43,6 +46,7 @@
     },
     {
         "session": "morning",
+        "gender": "female",
         "sport": "Cancha",
         "teams":["Psico", "MATCOM"],
         "players": ["Psico", "MATCOM"],

@@ -33,7 +33,7 @@ export default function PlayCard({play})
                     </div>
                 </div>
                 <div className="center column">
-                    <h4>{play.sport}</h4>
+                    <h4>{play.sport} {play.gender === "male" ? "(M)" : play.gender === "female" ? "(F)": "(Mix)"}</h4>
                     <h4>{play.scores[0]}-{play.scores[1]}</h4>
                 </div>
                 <div className="right column">
